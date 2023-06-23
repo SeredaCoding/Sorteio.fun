@@ -168,7 +168,7 @@
 
 			
 			
-			<div class="col-12 col-sm-auto col-md-3 centralizar">
+			<div class="col-12 col-md-auto col-md-3 centralizar">
 				<div class="p-2 m-2 rounded border"><?php echo $numero; ?></div>
 			</div>
 
