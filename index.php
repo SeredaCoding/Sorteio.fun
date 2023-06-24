@@ -46,13 +46,13 @@
 			    
 					<div class="input-group mb-3">
 					  <span class="input-group-text">Sortear</span>
-				      	<input class="form-control" type="number" name="quantidade" min="1" value="<?php
+				      	<input style="text-align:center;" class="form-control" type="number" name="quantidade" min="1" value="<?php
 						//mantendo a quantidade em sessão
 						if(isset($_SESSION['quantidade']) == 1)
 							{
 								print_r($_SESSION['quantidade']);
 							}else if(isset($_SESSION['quantidade']) == 0){
-								echo 1;
+								echo 10;
 							}; 
 						?>">
 					  <span class="input-group-text">Número(s)</span>
@@ -63,7 +63,7 @@
 			    <div class="col col-12 col-md-8">
 					<div class="input-group mb-3">
 						<span class="input-group-text">Entre</span>
-					 			<input class="form-control" type="number" name="entre1" min="1" value="<?php 
+					 			<input  style="text-align:center;" class="form-control" type="number" name="entre1" min="1" value="<?php 
 								// mantendo o entre1 em sessão
 								if(isset($_SESSION['entre1']) == 1)
 									{
@@ -73,19 +73,58 @@
 									}; 
 								?>">
 					  <span class="input-group-text">até</span>
-					  			<input class="form-control" type="number" name="entre2" min="1" value="<?php 
+					  			<input  style="text-align:center;" class="form-control" type="number" name="entre2" min="1" value="<?php 
 								// mantendo o entre2 em sessão
 								if(isset($_SESSION['entre2']) == 1)
 									{
 										print_r($_SESSION['entre2']);
 									}else if(isset($_SESSION['entre2']) == 0){
-										echo 10;
+										echo 100;
 									}; 
 								?>">
 					 
 					</div>
 					
 			    </div>
+
+			    <div class="col col-12 col-md-8">
+					<div class="input-group mb-3">
+						
+					 	<select style="text-align:center;" class="form-select form-control" name="ordem" required>
+						  <option value="" disabled hidden <?php 
+						  if(isset($_SESSION['ordem_value']) == 0){
+						  	echo 'selected';
+						  }
+						   ?>>Selecione a ordem de exposição dos números</option>
+						  <option value="1" <?php 
+						  if(isset($_SESSION['ordem_value']) == 1){
+						  	if($_SESSION['ordem_value'] == 1){
+						  		echo 'selected';
+						  	}
+						  }
+						   ?>>Crescente</option>
+						  <option value="2" <?php 
+						  if(isset($_SESSION['ordem_value']) == 1){
+						  	if($_SESSION['ordem_value'] == 2){
+						  		echo 'selected';
+						  	}
+						  }
+						   ?>>Decrescente</option>
+						  <option value="3"
+						   <?php 
+						  if(isset($_SESSION['ordem_value']) == 1){
+						  	if($_SESSION['ordem_value'] == 3){
+						  		echo 'selected';
+						  	}
+						  }
+						   ?>>Aleatório</option>
+						</select>
+
+					</div>
+					
+			    </div>
+
+			    
 
 			  </div>
 			</div>
@@ -153,7 +192,7 @@
 		<?php
 		//verificação se existe números sorteados
 		if(isset($_SESSION['numeros']) == 1){
-			sort($_SESSION['numeros']);
+			$_SESSION['ordem'];
 		}else if(isset($_SESSION['numeros']) == 0){
 			
 		};
@@ -168,7 +207,7 @@
 
 			
 			
-			<div class="col-12 col-sm-auto col-md-3 centralizar">
+			<div class="col-6 col-md-auto col-md-3 col-lg-4 centralizar">
 				<div class="p-2 m-2 rounded border"><?php echo $numero; ?></div>
 			</div>
 

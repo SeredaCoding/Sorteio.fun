@@ -2,15 +2,21 @@
 	
 	session_start();
 
-	/*echo '<pre>';
+	echo '<pre>';
 	print_r($_POST);
-	echo '</pre>';*/
+	echo '</pre>';
 
 	if($_POST['entre1'] > $_POST['entre2'] || $_POST['quantidade'] > $_POST['entre2']){
 		header('location: index.php?sorteio=erro2');
 		exit;
 	}
 
+	/*
+	ordens:
+	1 = crescente
+	2 = descrescente
+	3 = aleatório
+	*/
 
 	$numeros = [];
 
@@ -41,6 +47,24 @@
 	}
 
 	$_SESSION['numeros'] = $numeros;
+	$_SESSION['ordem_value'] = 1;
+
+	//ordem de exposição.
+	$_SESSION['ordem'] = 0;
+
+	if($_POST['ordem'] == 1){
+		$_SESSION['ordem'] = asort($_SESSION['numeros']);
+		$_SESSION['ordem_value'] = 1;
+	}else if ($_POST['ordem'] == 2) {
+		$_SESSION['ordem'] = rsort($_SESSION['numeros']);
+		$_SESSION['ordem_value'] = 2;
+
+	}else if($_POST['ordem'] == 3){
+		$_SESSION['ordem_value'] = 3;
+	}else{
+		$_SESSION['ordem'] = asort($_SESSION['numeros']);
+	};
+
 
 	$sorteio = false;
 
