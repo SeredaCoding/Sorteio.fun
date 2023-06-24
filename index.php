@@ -207,11 +207,7 @@
 
 			
 			
-<<<<<<< HEAD
 			<div class="col-6 col-md-auto col-md-3 col-lg-4 centralizar">
-=======
-			<div class="col-12 col-md-auto col-md-3 centralizar">
->>>>>>> be0f88876c828d612380d6aeb12ab61d5a7df398
 				<div class="p-2 m-2 rounded border"><?php echo $numero; ?></div>
 			</div>
 
