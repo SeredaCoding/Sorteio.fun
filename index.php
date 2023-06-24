@@ -34,7 +34,7 @@
 			  <div class="row justify-content-md-center">
 			  
 			    <div class="col-md-auto">
-			      <a class="textd-none" href="resetar_auto.php"><h4 class="text-info p-4 mt-2 border rounded">Sorteio de números</h4></a>
+			      <a href="resetar_auto.php"><h4 class="text-info p-4 mt-2">Sorteio de números</h4></a>
 			    </div>
 			    
 			  </div>
@@ -264,7 +264,7 @@
 				<?php 
 			} ?>
 
-			<div class="container text-center">
+			<!--<div class="container text-center">
 			  <div class="row justify-content-center">
 			  
 			    <div class="border rounded col-12 m-3">
@@ -272,7 +272,7 @@
 			    </div>
 			    
 			  </div>
-			</div>		
+			</div>-->	
 			
 			<?php 
 			//Verificação se o sorteio foi feito para exibir o botão resetar
