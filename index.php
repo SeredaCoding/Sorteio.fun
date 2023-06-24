@@ -26,106 +26,14 @@
 		</style>
 	</head>
 	<body>
-
-		<div class="container text-center">
-		  <div class="row justify-content-md-center">
-		  
-		    <div class="col-md-auto">
-		      <h4 class="centralizar m-4">Sorteie seu número abaixo:</h4>
-		    </div>
-		    
-		  </div>
-		</div>
-
-		<form method="post" action="sortear.php">
-
+		<header>
 			<div class="container text-center">
 			  <div class="row justify-content-md-center">
-
-			    <div class="col col-12 col-md-8">
+			  
+			    <div class="col-md-auto">
+			      <a href="index.php"><h4 class="text-info m-4 p-4 border rounded">Sorteio de números</h4></a>
+			    </div>
 			    
-					<div class="input-group mb-3">
-					  <span class="input-group-text">Sortear</span>
-				      	<input style="text-align:center;" class="form-control" type="number" name="quantidade" min="1" value="<?php
-						//mantendo a quantidade em sessão
-						if(isset($_SESSION['quantidade']) == 1)
-							{
-								print_r($_SESSION['quantidade']);
-							}else if(isset($_SESSION['quantidade']) == 0){
-								echo 10;
-							}; 
-						?>">
-					  <span class="input-group-text">Número(s)</span>
-					</div>
-
-			    </div>
-
-			    <div class="col col-12 col-md-8">
-					<div class="input-group mb-3">
-						<span class="input-group-text">Entre</span>
-					 			<input  style="text-align:center;" class="form-control" type="number" name="entre1" min="1" value="<?php 
-								// mantendo o entre1 em sessão
-								if(isset($_SESSION['entre1']) == 1)
-									{
-										print_r($_SESSION['entre1']);
-									}else if(isset($_SESSION['entre1']) == 0){
-										echo 1;
-									}; 
-								?>">
-					  <span class="input-group-text">até</span>
-					  			<input  style="text-align:center;" class="form-control" type="number" name="entre2" min="1" value="<?php 
-								// mantendo o entre2 em sessão
-								if(isset($_SESSION['entre2']) == 1)
-									{
-										print_r($_SESSION['entre2']);
-									}else if(isset($_SESSION['entre2']) == 0){
-										echo 100;
-									}; 
-								?>">
-					 
-					</div>
-					
-			    </div>
-
-			    <div class="col col-12 col-md-8">
-					<div class="input-group mb-3">
-						
-					 	<select style="text-align:center;" class="form-select form-control" name="ordem" required>
-						  <option value="" disabled hidden <?php 
-						  if(isset($_SESSION['ordem_value']) == 0){
-						  	echo 'selected';
-						  }
-						   ?>>Selecione a ordem de exposição dos números</option>
-						  <option value="1" <?php 
-						  if(isset($_SESSION['ordem_value']) == 1){
-						  	if($_SESSION['ordem_value'] == 1){
-						  		echo 'selected';
-						  	}
-						  }
-						   ?>>Crescente</option>
-						  <option value="2" <?php 
-						  if(isset($_SESSION['ordem_value']) == 1){
-						  	if($_SESSION['ordem_value'] == 2){
-						  		echo 'selected';
-						  	}
-						  }
-						   ?>>Decrescente</option>
-						  <option value="3"
-						   <?php 
-						  if(isset($_SESSION['ordem_value']) == 1){
-						  	if($_SESSION['ordem_value'] == 3){
-						  		echo 'selected';
-						  	}
-						  }
-						   ?>>Aleatório</option>
-						</select>
-
-					</div>
-					
-			    </div>
-
-			    
-
 			  </div>
 			</div>
 
@@ -133,143 +41,252 @@
 			  <div class="row justify-content-md-center">
 			  
 			    <div class="col-md-auto">
-			      <button class="rounded btn-success btn m-2">Sortear</button>
+			      <h5 class="centralizar m-4">Sorteie seu número abaixo:</h5>
+			    </div>
+			    
+			  </div>
+			</div>
+		</header>
+		<main>
+			<form method="post" action="sortear.php">
+
+				<div class="container text-center">
+				  <div class="row justify-content-md-center">
+
+				    <div class="col col-12 col-md-8">
+				    
+						<div class="input-group mb-3">
+						  <span class="input-group-text bg-light">Sortear</span>
+					      	<input style="text-align:center;" class="form-control" type="number" name="quantidade" min="1" value="<?php
+							//mantendo a quantidade em sessão
+							if(isset($_SESSION['quantidade']) == 1)
+								{
+									print_r($_SESSION['quantidade']);
+								}else if(isset($_SESSION['quantidade']) == 0){
+									echo 10;
+								}; 
+							?>">
+						  <span class="input-group-text bg-light">Número(s)</span>
+						</div>
+
+				    </div>
+
+				    <div class="col col-12 col-md-8">
+						<div class="input-group mb-3">
+							<span class="input-group-text bg-light">Entre</span>
+						 			<input  style="text-align:center;" class="form-control" type="number" name="entre1" min="1" value="<?php 
+									// mantendo o entre1 em sessão
+									if(isset($_SESSION['entre1']) == 1)
+										{
+											print_r($_SESSION['entre1']);
+										}else if(isset($_SESSION['entre1']) == 0){
+											echo 1;
+										}; 
+									?>">
+						  <span class="input-group-text bg-light">até</span>
+						  			<input  style="text-align:center;" class="form-control" type="number" name="entre2" min="1" value="<?php 
+									// mantendo o entre2 em sessão
+									if(isset($_SESSION['entre2']) == 1)
+										{
+											print_r($_SESSION['entre2']);
+										}else if(isset($_SESSION['entre2']) == 0){
+											echo 100;
+										}; 
+									?>">
+						 
+						</div>
+						
+				    </div>
+
+				    <div class="col col-12 col-md-8">
+						<div class="input-group mb-3">
+							
+						 	<select style="text-align:center;" class="form-select form-control" name="ordem" required>
+							  <option value="" disabled hidden <?php 
+							  if(isset($_SESSION['ordem_value']) == 0){
+							  	echo 'selected';
+							  }
+							   ?>>Selecione a ordem de exposição dos números</option>
+							  <option value="1" <?php 
+							  if(isset($_SESSION['ordem_value']) == 1){
+							  	if($_SESSION['ordem_value'] == 1){
+							  		echo 'selected';
+							  	}
+							  }
+							   ?>>Crescente</option>
+							  <option value="2" <?php 
+							  if(isset($_SESSION['ordem_value']) == 1){
+							  	if($_SESSION['ordem_value'] == 2){
+							  		echo 'selected';
+							  	}
+							  }
+							   ?>>Decrescente</option>
+							  <option value="3"
+							   <?php 
+							  if(isset($_SESSION['ordem_value']) == 1){
+							  	if($_SESSION['ordem_value'] == 3){
+							  		echo 'selected';
+							  	}
+							  }
+							   ?>>Aleatório</option>
+							</select>
+
+						</div>
+						
+				    </div>
+
+				    
+
+				  </div>
+				</div>
+
+				<div class="container text-center">
+				  <div class="row justify-content-md-center">
+				  
+				    <div class="col-md-auto">
+				      <button class="rounded btn-success btn m-2">Sortear</button>
+				    </div>
+				    
+				  </div>
+				</div>		
+				
+			</form>
+
+			<?php 
+			//sorteados com sucessso
+			if(isset($_GET['sorteio']) && $_GET['sorteio'] == 'sucesso'){
+				?>
+				<div class="container text-center">
+					<div class="row justify-content-md-center">
+						  
+						<div class="col-md-auto">
+						    <p class="text-success bg-light rounded border p-3">Número(s) sorteado(s) com sucesso!</p>
+						</div>
+						    
+					</div>
+				</div>	
+				<?php 
+			}
+			?>
+			<?php 
+			//erro ao sortear
+			if(isset($_GET['sorteio']) && $_GET['sorteio'] == 'erro'){
+				?>
+				<div class="container text-center">
+					<div class="row justify-content-md-center">
+						  
+						<div class="col-md-auto">
+						    <p class="text-danger bg-light rounded border p-3">Erro ao sortear o(s) número(s)!</p>
+						</div>
+						    
+					</div>
+				</div>	
+				<?php 
+			}else if(isset($_GET['sorteio']) && $_GET['sorteio'] == 'erro2'){
+				?>
+				<div class="container text-center">
+					<div class="row justify-content-md-center">
+						  
+						<div class="col-md-auto">
+						    <p class="text-danger bg-light rounded border p-3">Erro ao sortear, definição incompatível!</p>
+						</div>
+						    
+					</div>
+				</div>
+				<?php 
+			}
+			?>
+
+			<div class="container text-center">
+				<div class="row justify-content-md-center">
+
+			<?php
+			//verificação se existe números sorteados
+			if(isset($_SESSION['numeros']) == 1){
+				$_SESSION['ordem'];
+			}else if(isset($_SESSION['numeros']) == 0){
+				
+			};
+
+			//percorrendo os números sorteados para exibição
+			if(isset($_SESSION['sorteio'])){
+				foreach($_SESSION['numeros'] as $indices => $numero){
+				if($numero <= 9){
+					$numero = '0'.$numero;
+				}
+				?>
+
+				
+				
+				<div class="col-6 col-md-auto col-md-3 col-lg-4 centralizar">
+					<div class="p-2 m-2 rounded border"><?php echo $numero; ?></div>
+				</div>
+
+				 <?php
+				}
+				
+			} 
+			?>
+				</div>
+			</div>
+
+			<?php
+			//sucesso ao resetar
+			if(isset($_GET['resetar']) && $_GET['resetar'] == 's'){
+				?>
+				<div class="container text-center">
+				  <div class="row justify-content-md-center">
+				  
+				    <div class="col-md-auto text-white bg-warning rounded pt-3 pl-2 pr-2">
+				      <p>Número(s) resetado(s) com sucesso!</p>
+				    </div>
+				    
+				  </div>
+				</div>
+				<?php 
+			} ?>
+			<?php
+			//erro ao resetar
+			if(isset($_GET['resetar']) && $_GET['resetar'] == 'n'){
+				?>
+				<div class="container text-center">
+				  <div class="row justify-content-md-center">
+				  
+				    <div class="col-md-auto text-white bg-danger rounded pt-3 pl-2 pr-2">
+				      <p>Erro ao resetar o(s) número(s)!</p>
+				    </div>
+				    
+				  </div>
+				</div>
+				<?php 
+			} ?>
+
+			<div class="container text-center">
+			  <div class="row justify-content-center">
+			  
+			    <div class="border rounded col-12 m-3">
+			      <div>anúncio</div>
 			    </div>
 			    
 			  </div>
 			</div>		
 			
-		</form>
-
-		<?php 
-		//sorteados com sucessso
-		if(isset($_GET['sorteio']) && $_GET['sorteio'] == 'sucesso'){
-			?>
-			<div class="container text-center">
-				<div class="row justify-content-md-center">
-					  
-					<div class="col-md-auto">
-					    <p class="text-success bg-light rounded border p-3">Número(s) sorteado(s) com sucesso!</p>
-					</div>
-					    
+			<?php 
+			//Verificação se o sorteio foi feito para exibir o botão resetar
+			if(isset($_GET['sorteio'])){
+				?>
+				<div class="container text-center">
+				  <div class="row justify-content-md-center">
+				  
+				    <div class="col-md-auto">
+				      <a href="resetar.php"><button class="btn btn-danger">Resetar</button></a>
+				    </div>
+				    
+				  </div>
 				</div>
-			</div>	
-			<?php 
-		}
-		?>
-		<?php 
-		//erro ao sortear
-		if(isset($_GET['sorteio']) && $_GET['sorteio'] == 'erro'){
-			?>
-			<div class="container text-center">
-				<div class="row justify-content-md-center">
-					  
-					<div class="col-md-auto">
-					    <p class="text-danger bg-light rounded border p-3">Erro ao sortear o(s) número(s)!</p>
-					</div>
-					    
-				</div>
-			</div>	
-			<?php 
-		}else if(isset($_GET['sorteio']) && $_GET['sorteio'] == 'erro2'){
-			?>
-			<div class="container text-center">
-				<div class="row justify-content-md-center">
-					  
-					<div class="col-md-auto">
-					    <p class="text-danger bg-light rounded border p-3">Erro ao sortear, definição incompatível!</p>
-					</div>
-					    
-				</div>
-			</div>
-			<?php 
-		}
-		?>
-
-		<div class="container text-center">
-			<div class="row justify-content-md-center">
-
-		<?php
-		//verificação se existe números sorteados
-		if(isset($_SESSION['numeros']) == 1){
-			$_SESSION['ordem'];
-		}else if(isset($_SESSION['numeros']) == 0){
-			
-		};
-
-		//percorrendo os números sorteados para exibição
-		if(isset($_SESSION['sorteio'])){
-			foreach($_SESSION['numeros'] as $indices => $numero){
-			if($numero <= 9){
-				$numero = '0'.$numero;
-			}
-			?>
-
-			
-			
-			<div class="col-6 col-md-auto col-md-3 col-lg-4 centralizar">
-				<div class="p-2 m-2 rounded border"><?php echo $numero; ?></div>
-			</div>
-
-			 <?php
-			}
-			
-		} 
-		?>
-			</div>
-		</div>		
-		
-		<?php 
-		//Verificação se o sorteio foi feito para exibir o botão resetar
-		if(isset($_GET['sorteio'])){
-			?>
-			<div class="container text-center">
-			  <div class="row justify-content-md-center">
-			  
-			    <div class="col-md-auto">
-			      <a href="logoff.php"><button class="btn btn-danger">Resetar</button></a>
-			    </div>
-			    
-			  </div>
-			</div>
-			<?php 
-		} ?>
-
-		
-
-		
-
-		<?php
-		//sucesso ao resetar
-		if(isset($_GET['resetar']) && $_GET['resetar'] == 's'){
-			?>
-			<div class="container text-center">
-			  <div class="row justify-content-md-center">
-			  
-			    <div class="col-md-auto text-white bg-warning rounded pt-3 pl-2 pr-2">
-			      <p>Número(s) resetado(s) com sucesso!</p>
-			    </div>
-			    
-			  </div>
-			</div>
-			<?php 
-		} ?>
-		<?php
-		//erro ao resetar
-		if(isset($_GET['resetar']) && $_GET['resetar'] == 'n'){
-			?>
-			<div class="container text-center">
-			  <div class="row justify-content-md-center">
-			  
-			    <div class="col-md-auto text-white bg-danger rounded pt-3 pl-2 pr-2">
-			      <p>Erro ao resetar o(s) número(s)!</p>
-			    </div>
-			    
-			  </div>
-			</div>
-			<?php 
-		} ?>
-		
+				<?php 
+			} ?>
+		</main>	
 		
 		<footer>
 			<div class="container text-center mt-5">
