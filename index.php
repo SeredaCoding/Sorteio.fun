@@ -23,6 +23,9 @@
 			.centralizar{
 				margin: auto;
 			}
+			a:link{
+				text-decoration: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -31,7 +34,7 @@
 			  <div class="row justify-content-md-center">
 			  
 			    <div class="col-md-auto">
-			      <a href="index.php"><h4 class="text-info m-4 p-4 border rounded">Sorteio de números</h4></a>
+			      <a class="textd-none" href="resetar_auto.php"><h4 class="text-info p-4 mt-2 border rounded">Sorteio de números</h4></a>
 			    </div>
 			    
 			  </div>
@@ -41,7 +44,7 @@
 			  <div class="row justify-content-md-center">
 			  
 			    <div class="col-md-auto">
-			      <h5 class="centralizar m-4">Sorteie seu número abaixo:</h5>
+			      <h5 class="centralizar mt-2 mb-4">Sorteie seu número abaixo:</h5>
 			    </div>
 			    
 			  </div>
