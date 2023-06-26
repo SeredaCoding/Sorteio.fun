@@ -18,6 +18,8 @@
 
 		<!-- Font Awesome -->
 	    <script src="https://kit.fontawesome.com/25f8242477.js" crossorigin="anonymous"></script>
+	    <!-- Sweet Alert -->
+	    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	    <style>
 			.centralizar{
@@ -156,9 +158,23 @@
 			</form>
 
 			<?php 
-			//sorteados com sucessso
+			//sorteados com sucessso + mensagem de alerta
 			if(isset($_GET['sorteio']) && $_GET['sorteio'] == 'sucesso'){
 				?>
+				<script>
+					Swal.fire(
+					  'Números sorteados com sucesso!',
+					  'Você sorteou <?php print($_SESSION['quantidade']);  ?> número(s) entre <?php print($_SESSION['entre1']); ?> até <?php print($_SESSION['entre2']); ?> em ordem <?php 
+					  if($_SESSION['ordem_value'] == 1){
+					  	echo 'crescente.';
+					  }else if($_SESSION['ordem_value'] == 2){
+					  	echo 'decrescente.';
+					  }else if($_SESSION['ordem_value'] == 3){
+					  	echo 'aleatória.';
+					  } ?>',
+					  'success'
+					)
+				</script>
 				<div class="container text-center">
 					<div class="row justify-content-md-center">
 						  
