@@ -292,7 +292,7 @@
 			
 			<?php 
 			//Verificação se o sorteio foi feito para exibir o botão resetar
-			if(isset($_GET['sorteio'])){
+			if(isset($_GET['sorteio']) || isset($_SESSION['numeros'])){
 				?>
 				<div class="container text-center">
 				  <div class="row justify-content-md-center">
