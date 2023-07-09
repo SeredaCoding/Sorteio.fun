@@ -65,6 +65,8 @@
 		$_SESSION['ordem'] = asort($_SESSION['numeros']);
 	};
 
+	$_SESSION['class_num'] = $_POST['class_num'];
+
 
 	$sorteio = false;
 

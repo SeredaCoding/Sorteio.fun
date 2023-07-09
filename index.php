@@ -13,8 +13,7 @@
 	    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 		<!-- Estilo CSS -->
-		<link rel="stylesheet" type="text/css" href="../css/estilo.css">
-		<link rel="icon" href="../imagens/favicon2.png">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<!-- Font Awesome -->
 	    <script src="https://kit.fontawesome.com/25f8242477.js" crossorigin="anonymous"></script>
@@ -32,15 +31,14 @@
 	</head>
 	<body>
 		<header>
-			<div class="container text-center">
-			  <div class="row justify-content-md-center">
-			  
-			    <div class="col-md-auto">
-			      <a href="resetar_auto.php"><h4 class="text-info p-4 mt-2">Sorteio de números</h4></a>
-			    </div>
+			<div class="container">
+			  <div class="row justify-content-center">
+		   
+		    	<div class="text-center mb-2"><a href="resetar_auto.php"><h4 class="text-info mt-5">Sorteio de números</h4></a></div>
 			    
 			  </div>
 			</div>
+
 
 			<div class="container text-center">
 			  <div class="row justify-content-md-center">
@@ -139,9 +137,20 @@
 						</div>
 						
 				    </div>
+				    <div class="col col-12 col-md-8">
+				  		<div>
+				  			<div class="col">Desativar</div>
+						    <div class="col"><input type="checkbox" <?php if(isset($_SESSION['class_num'])==1 && $_SESSION['class_num'] == 1){echo 'checked';} ?> name="class_num" value="1"></div>
+						   	<div class="col">Ativar</div>
+						</div>
+
+					    <div class="col mb-3">
+					      <div>Classificação dos números</div>
+					    </div>
+					</div>
+					   
 
 				    
-
 				  </div>
 				</div>
 
@@ -220,6 +229,8 @@
 				<div class="row justify-content-md-center">
 
 			<?php
+			$id= 0;
+			$ads = 1;
 			//verificação se existe números sorteados
 			if(isset($_SESSION['numeros']) == 1){
 				$_SESSION['ordem'];
@@ -233,22 +244,51 @@
 				if($numero <= 9){
 					$numero = '0'.$numero;
 				}
+
+				$id = ++$id;
+
 				?>
 
 				
 				
-				<div class="col-6 col-md-auto col-md-3 col-lg-4 centralizar">
+				<div class="col-6 col-md-auto col-md-3 col-lg-4 centralizar ">
+					<?php if(isset($_SESSION['class_num']) == 1){ ?>
+					<div class="col-6 centralizar">
+						<div class="rounded border text-success bg-light"><?php echo $id.'º'; ?></div>
+					</div>
+					<?php }; ?>
 					<div class="p-2 m-2 rounded border"><?php echo $numero; ?></div>
-				</div>
 
+					
+				</div>
+				<?php
+				if($_SESSION['quantidade'] == 10 && $id == 10){ ?>
+					<div class="container text-center">
+					  <div class="row justify-content-center">
+					  
+					    <div class="border rounded col-12 m-3">
+					      <div>anúncio</div>
+					    </div>
+					    
+					  </div>
+					</div><?php }else if($_SESSION['quantidade'] > 14){
+						if($id == 9 || $id == 54 || $id == 81){
+					?>
+					<div class="container text-center">
+					  <div class="row justify-content-center">
+					  
+					    <div class="border rounded col-12 m-3">
+					      <div>anúncio</div>
+					    </div>
+					    
+					  </div>
+					</div><?php  } } ?>
 				 <?php
+				 
 				}
 				
 			} 
 			?>
-				</div>
-			</div>
-
 			<?php
 			//sucesso ao resetar
 			if(isset($_GET['resetar']) && $_GET['resetar'] == 's'){
@@ -279,16 +319,6 @@
 				</div>
 				<?php 
 			} ?>
-
-			<!--<div class="container text-center">
-			  <div class="row justify-content-center">
-			  
-			    <div class="border rounded col-12 m-3">
-			      <div>anúncio</div>
-			    </div>
-			    
-			  </div>
-			</div>-->	
 			
 			<?php 
 			//Verificação se o sorteio foi feito para exibir o botão resetar
@@ -305,6 +335,9 @@
 				</div>
 				<?php 
 			} ?>
+
+			
+
 		</main>	
 		
 		<footer>
@@ -314,7 +347,7 @@
 			      <p>Desenvolvido por: </p>
 			    </div>
 
-			    <div class="col-md-auto ">
+			    <div class="col-md-auto mb-2">
 			      <a href="https://github.com/SeredaCoding"><i class="fa-brands fa-square-git fa-xl"></i> Sereda Coding</a>
 			    </div>
 			    
