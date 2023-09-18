@@ -54,7 +54,7 @@
 			<form method="post" action="sortear.php">
 
 				<div class="container text-center">
-				  <div class="row justify-content-md-center">
+				  <div class="row justify-content-center">
 
 				    <div class="col col-12 col-md-8">
 				    
@@ -62,10 +62,10 @@
 						  <span class="input-group-text bg-light">Sortear</span>
 					      	<input style="text-align:center;" class="form-control" type="number" name="quantidade" min="1" value="<?php
 							//mantendo a quantidade em sessão
-							if(isset($_SESSION['quantidade']) == 1)
+							if(isset($_SESSION['quantidade']) == true)
 								{
 									print_r($_SESSION['quantidade']);
-								}else if(isset($_SESSION['quantidade']) == 0){
+								}else if(isset($_SESSION['quantidade']) == false){
 									echo 10;
 								}; 
 							?>">
@@ -111,7 +111,7 @@
 							  }
 							   ?>>Selecione a ordem de exposição dos números</option>
 							  <option value="1" <?php 
-							  if(isset($_SESSION['ordem_value']) == 1){
+							  if(isset($_SESSION['ordem_value']) == true){
 							  	if($_SESSION['ordem_value'] == 1){
 							  		echo 'selected';
 							  	}
@@ -204,7 +204,7 @@
 					<div class="row justify-content-md-center">
 						  
 						<div class="col-md-auto">
-						    <p class="text-danger bg-light rounded border p-3">Erro ao sortear o(s) número(s)!</p>
+						    <p class="text-danger bg-light rounded border p-3">Erro ao sortear o(s) número(s).</p>
 						</div>
 						    
 					</div>
@@ -216,7 +216,7 @@
 					<div class="row justify-content-md-center">
 						  
 						<div class="col-md-auto">
-						    <p class="text-danger bg-light rounded border p-3">Erro ao sortear, definição incompatível!</p>
+						    <p class="text-danger bg-light rounded border p-3">Erro ao sortear, definição incompatível.</p>
 						</div>
 						    
 					</div>
@@ -238,6 +238,8 @@
 				
 			};
 
+
+
 			//percorrendo os números sorteados para exibição
 			if(isset($_SESSION['sorteio'])){
 				foreach($_SESSION['numeros'] as $indices => $numero){
@@ -246,6 +248,8 @@
 				}
 
 				$id = ++$id;
+
+
 
 				?>
 
@@ -258,6 +262,7 @@
 					</div>
 					<?php }; ?>
 					<div class="p-2 m-2 rounded border"><?php echo $numero; ?></div>
+
 
 					
 				</div>
@@ -292,6 +297,7 @@
 			<?php
 			//sucesso ao resetar
 			if(isset($_GET['resetar']) && $_GET['resetar'] == 's'){
+				
 				?>
 				<div class="container text-center">
 				  <div class="row justify-content-md-center">

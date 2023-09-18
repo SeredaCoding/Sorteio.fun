@@ -2,9 +2,8 @@
 	
 	session_start();
 
-	echo '<pre>';
 	print_r($_POST);
-	echo '</pre>';
+
 
 	if($_POST['entre1'] > $_POST['entre2'] || $_POST['quantidade'] > $_POST['entre2']){
 		header('location: index.php?sorteio=erro2');
