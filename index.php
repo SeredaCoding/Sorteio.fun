@@ -222,6 +222,18 @@
 					</div>
 				</div>
 				<?php 
+			}else if(isset($_GET['sorteio']) && $_GET['sorteio'] == 'erro3'){
+				?>
+				<div class="container text-center">
+					<div class="row justify-content-md-center">
+						  
+						<div class="col-md-auto">
+						    <p class="text-danger bg-light rounded border p-3">Erro ao sortear, limite máximo excedido.</p>
+						</div>
+						    
+					</div>
+				</div>
+				<?php 
 			}
 			?>
 
