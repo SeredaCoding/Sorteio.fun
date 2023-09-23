@@ -5,8 +5,13 @@
 	print_r($_POST);
 
 
-	if($_POST['entre1'] > $_POST['entre2'] || $_POST['quantidade'] > $_POST['entre2'] || $_POST['entre2'] > 1000000){
+	if($_POST['entre1'] > $_POST['entre2'] || $_POST['quantidade'] > $_POST['entre2']){
 		header('location: index.php?sorteio=erro2');
+		exit;
+	}
+
+	if($_POST['entre2'] > 10000){
+		header('location: index.php?sorteio=erro3');
 		exit;
 	}
 
