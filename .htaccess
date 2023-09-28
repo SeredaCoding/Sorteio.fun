@@ -1,0 +1,8 @@
+php_value display_errors Off
+php_value mbstring.http_input auto
+php_value date.timezone America/Sao_Paulo
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:CF-Visitor} !{"scheme":"https"}
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

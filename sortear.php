@@ -9,8 +9,7 @@
 		header('location: index.php?sorteio=erro2');
 		exit;
 	}
-
-	if($_POST['entre2'] >= 10000){
+    if($_POST['quantidade'] >= 10000){
 		header('location: index.php?sorteio=erro3');
 		exit;
 	}

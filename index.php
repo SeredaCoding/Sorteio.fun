@@ -2,7 +2,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Sorteio de números</title>
+		<title>Sorteio de números | 
+            <?php if(isset($_GET['sorteio']) && $_GET['sorteio'] == 'sucesso'){
+			?>Sucesso!<?php }?>
+            <?php if(isset($_GET['sorteio']) && $_GET['sorteio'] == 'erro' || $_GET['sorteio'] == 'erro2' || $_GET['sorteio'] == 'erro3'){
+			?>Erro!<?php }?>
+            <?php if(isset($_GET['resetar']) && $_GET['resetar'] == 's'){
+			?>Resetado!<?php }?>
+        </title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +24,17 @@
 
 		<!-- Font Awesome -->
 	    <script src="https://kit.fontawesome.com/25f8242477.js" crossorigin="anonymous"></script>
+        <!-- Google Fonts -->
 	    <!-- Sweet Alert -->
 	    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2335130971900433"
+     crossorigin="anonymous">
+        </script>
+        <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+        </script>
+        <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 
 	    <style>
 			.centralizar{
@@ -30,11 +46,24 @@
 		</style>
 	</head>
 	<body>
+        <amp-ad width="100vw" height="320"
+            type="adsense"
+            data-ad-client="ca-pub-2335130971900433"
+            data-ad-slot="3057233204"
+            data-auto-format="rspv"
+            data-full-width="">
+        <div overflow=""></div>
+        </amp-ad>
+
+        <amp-auto-ads type="adsense"
+        data-ad-client="ca-pub-2335130971900433">
+        </amp-auto-ads>
 		<header>
 			<div class="container">
 			  <div class="row justify-content-center">
 		   
-		    	<div class="text-center mb-2"><a href="resetar_auto.php"><h4 class="text-info mt-5">Sorteio de números</h4></a></div>
+		    	<div class="text-center mb-2"><a href="resetar_auto.php"><h2 class="text-success mt-4" style="margin-top: 10px;">Sorteio de números</h2></a></div>
+                <div class="text-center mb-2"><i><b><p class="text-danger mt-4"">v.Beta</p></i></b></div>
 			    
 			  </div>
 			</div>
@@ -221,7 +250,7 @@
 						    
 					</div>
 				</div>
-				<?php 
+				<?php  
 			}else if(isset($_GET['sorteio']) && $_GET['sorteio'] == 'erro3'){
 				?>
 				<div class="container text-center">
@@ -282,20 +311,52 @@
 				if($_SESSION['quantidade'] == 10 && $id == 10){ ?>
 					<div class="container text-center">
 					  <div class="row justify-content-center">
+
+						<script type="text/javascript">
+							var infolinks_pid = 3406060;
+							var infolinks_wsid = 0;
+						</script>
+						<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
 					  
-					    <div class="border rounded col-12 m-3">
-					      <div>anúncio</div>
-					    </div>
+					    <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2335130971900433"
+						     crossorigin="anonymous"></script>
+						 sorteio-anúncios 
+						<ins class="adsbygoogle"
+						     style="display:block"
+						     data-ad-client="ca-pub-2335130971900433"
+						     data-ad-slot="3057233204"
+						     data-ad-format="auto"
+						     data-full-width-responsive="true"></ins>
+						<script>
+						     (adsbygoogle = window.adsbygoogle || []).push({});
+						</script>-->
 					    
 					  </div>
-					</div><?php }else if($_SESSION['quantidade'] > 14){
+					</div><?php }else if($_SESSION['quantidade'] > 9){
 						if($id == 9 || $id == 54 || $id == 81){
 					?>
 					<div class="container text-center">
 					  <div class="row justify-content-center">
 					  
 					    <div class="border rounded col-12 m-3">
-					      <div>anúncio</div>
+
+					    	<script type="text/javascript">
+							var infolinks_pid = 3406060;
+							var infolinks_wsid = 0;
+							</script>
+							<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+					      <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2335130971900433"
+						     crossorigin="anonymous"></script>
+						 sorteio-anúncios 
+						<ins class="adsbygoogle"
+						     style="display:block"
+						     data-ad-client="ca-pub-2335130971900433"
+						     data-ad-slot="3057233204"
+						     data-ad-format="auto"
+						     data-full-width-responsive="true"></ins>
+						<script>
+						     (adsbygoogle = window.adsbygoogle || []).push({});
+						</script>-->
 					    </div>
 					    
 					  </div>
@@ -368,9 +429,17 @@
 			    <div class="col-md-auto mb-2">
 			      <a href="https://github.com/SeredaCoding"><i class="fa-brands fa-square-git fa-xl"></i> Sereda Coding</a>
 			    </div>
+
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2335130971900433"
+                crossorigin="anonymous"></script>
 			    
 			  </div>
 			</div>
 		</footer>
+		<script type="text/javascript">
+			var infolinks_pid = 3406060;
+			var infolinks_wsid = 0;
+		</script>
+		<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
 	</body>
 </html>
