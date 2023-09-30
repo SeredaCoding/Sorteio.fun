@@ -28,14 +28,6 @@
 	    <!-- Sweet Alert -->
 	    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2335130971900433"
-     crossorigin="anonymous">
-        </script>
-        <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-        </script>
-        <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-
 	    <style>
 			.centralizar{
 				margin: auto;
@@ -44,20 +36,9 @@
 				text-decoration: none;
 			}
 		</style>
+		
 	</head>
 	<body>
-        <amp-ad width="100vw" height="320"
-            type="adsense"
-            data-ad-client="ca-pub-2335130971900433"
-            data-ad-slot="3057233204"
-            data-auto-format="rspv"
-            data-full-width="">
-        <div overflow=""></div>
-        </amp-ad>
-
-        <amp-auto-ads type="adsense"
-        data-ad-client="ca-pub-2335130971900433">
-        </amp-auto-ads>
 		<header>
 			<div class="container">
 			  <div class="row justify-content-center">
@@ -79,7 +60,9 @@
 			  </div>
 			</div>
 		</header>
-		<main>
+
+
+		<main id="content">
 			<form method="post" action="sortear.php">
 
 				<div class="container text-center">
@@ -417,7 +400,8 @@
 
 			
 
-		</main>	
+		</main>
+
 		
 		<footer>
 			<div class="container text-center mt-5">
@@ -428,18 +412,13 @@
 
 			    <div class="col-md-auto mb-2">
 			      <a href="https://github.com/SeredaCoding"><i class="fa-brands fa-square-git fa-xl"></i> Sereda Coding</a>
+			      <p>
+				&copy;<script>document.write(new Date().getFullYear());</script>
+				</p>
 			    </div>
-
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2335130971900433"
-                crossorigin="anonymous"></script>
 			    
 			  </div>
 			</div>
 		</footer>
-		<script type="text/javascript">
-			var infolinks_pid = 3406060;
-			var infolinks_wsid = 0;
-		</script>
-		<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
 	</body>
 </html>
