@@ -4,67 +4,96 @@
 
 	<head>
 
-		<title>Sorteio.Fun
+		<title>Sorteio.Fun | Loteria
 			<?php
-		    // Verifica se existe o parâmetro 'sorteio' na URL e realiza ações com base nele
-		    if(isset($_GET['sorteio'])) {
-		        $sorteio = $_GET['sorteio'];
-		        switch($sorteio) {
-		            case 'sucesso':
-		                echo ' | Sucesso!';
-		                break;
-		            case 'erro':
-		            case 'erro2':
-		            case 'erro3':
-		                echo ' | Erro!';
-		                break;
-		        }
-		    }
-
-			    // Verifica se existe o parâmetro 'resetar' na URL e realiza ação caso seu valor seja 's'
-			    if(isset($_GET['resetar']) && $_GET['resetar'] == 's') {
-			        echo ' | Resetado!';
-			    }
+				if(isset($_GET['sorteio'])){
+					if($_GET['sorteio'] == 'sucesso'){
+						echo ' | Sucesso!';
+					}
+					if($_GET['sorteio'] == 'erro' || $_GET['sorteio'] == 'erro2' || $_GET['sorteio'] == 'erro3'){
+						echo ' | Erro!';
+					}
+				}
+				if(isset($_GET['resetar']) && $_GET['resetar'] == 's'){
+					echo ' | Resetado!';
+				}
 			?>
-
         </title>
 
 		<?php require "./meta.php"; ?>
-		
 
-		<style>
-
-            .flutuar{
-                animation: float 5s ease-in-out infinite;
-                }
-
-                @keyframes float{
-                0%{
-                    transform: translateY(0px);
-                }
-                50%{
-                    transform: translateY(-5px);
-                }
-                100%{
-                    transform: translateY(0px);
-                }
+		 <style>
+                    .flutuar{
+            animation: float 5s ease-in-out infinite;
             }
-        
+
+            @keyframes float{
+            0%{
+                transform: translateY(0px);
+            }
+            50%{
+                transform: translateY(-5px);
+            }
+            100%{
+                transform: translateY(0px);
+            }
+            }
+
+            .btn-mega-sena {
+                    background-color: #209869;
+                    color: #fff;
+                }
+
+                .btn-lotofacil {
+                    background-color: #930089;
+                    color: #fff;
+                }
+
+                .btn-quina {
+                    background-color: #260085;
+                    color: #fff;
+                }
+
+                .btn-lotomania {
+                    background-color: #f78100;
+                    color: #fff;
+                }
+
+                .btn-timemania {
+                    background-color: #00ff48;
+                    color: #049645;
+                }
+
+                .btn-dupla-sena {
+                    background-color: #BF194E;
+                    color: #fff;
+                }
+
+                .btn-dia-de-sorte {
+                    background-color: #cb852b;
+                    color: #fff;
+                }
+
+                .btn-super-sete {
+                    background-color: #a8cf45;
+                    color: #fff;
+                }
         </style>
 
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2335130971900433"
      crossorigin="anonymous"></script>
-        
-        </script>    
+          
 	</head>
 	<body>
+
+
 
 		<header>
 			<div class="container">
             
 			    <div class="row justify-content-center">
 
-			    	<nav class="navbar navbar-light bg-white navbar-expand-lg justify-content-center animate__animated animate__fadeIn">
+			    	<nav class="navbar navbar-light bg-white navbar-expand-lg justify-content-center ">
 
 					    <div class="container text-center">
 
@@ -86,13 +115,19 @@
 					      <div class="collapse navbar-collapse " id="navbarToggler">
 					        <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
 					          <li class="nav-item col col-12 col-lg-6">
-					            <a class="p-2 m-1 border rounded btn btn-outline-success btn-block" href="loteria">Loteria</a>
+
+					            <a class="p-2 m-1 border rounded btn btn-outline-success btn-block" disabled href="index">Números</a>
+
 					          </li>
 					          <li class="nav-item col col-12 col-lg-6">
-					            <a class="p-2 m-1 border rounded btn btn-outline-success btn-block" href="nomes">Nomes</a>
+
+					            <a class="p-2 m-1 border rounded btn btn-outline-success btn-block" disabled href="nomes">Nomes</a>
+
 					          </li>
 					          <!--<li class="nav-item col-lg-6">
+
 					            <a class="p-2 m-1 border rounded btn btn-outline-success btn-block" href="sobre">Sobre</a>
+
 					          </li>-->
 					        </ul>
 					      </div>
@@ -100,13 +135,6 @@
 					    </div>
 
 				 	</nav>
-
-                    <!--<div class="col text-right" style="position: absolute; position: fixed; z-index: 10;">
-                        <a href="sobre"><button class="btn btn-outline-success mt-1">Sobre</button></a>
-                    </div>-->
-		   
-                    <!--<div class="text-center mb-2"><a href="resetar_auto"><h2 class="text-success mt-3" style="margin-top: 10px; font-family: Caveat; font-size: 40px;">Sorteio.Fun</h2></a></div>
-                    <div class="text-center mb-2"><i><b><p class="text-danger mt-2">v_Beta</p></i></b></div>-->
 			    
 			    </div>
 			</div>
@@ -115,7 +143,7 @@
 			  <div class="row justify-content-md-center">
 			  
 			    <div class="col-md-auto" >
-			      <h5 class="centralizar mt-2 mb-4 text-success">Sorteie seu(s) número(s) abaixo:</h5>
+			      <h5 class="centralizar mt-2 mb-4 text-success">Sorteie seus números da loteria abaixo:</h5>
 			    </div>
 			    
 			  </div>
@@ -128,63 +156,15 @@
 				<div class="container text-center">
 				  <div class="row justify-content-center">
 
-				    <div class="col col-12 col-md-8">
-				    
-						<div class="input-group mb-3">
-						  <span class="input-group-text bg-light">Sortear</span>
-					      	<input style="text-align:center;" class="form-control" type="number" name="quantidade" min="1" value="<?php
-							//mantendo a quantidade em sessão
-							if(isset($_SESSION['quantidade']) == true)
-								{
-									print_r($_SESSION['quantidade']);
-								}else if(isset($_SESSION['quantidade']) == false){
-									echo 10;
-								}; 
-							?>">
-						  <span class="input-group-text bg-light">Número(s)</span>
-						</div>
-
-				    </div>
-
-				    <div class="col col-12 col-md-8">
-						<div class="input-group mb-3">
-							<span class="input-group-text bg-light">Entre</span>
-						 			<input  style="text-align:center;" class="form-control" type="number" name="entre1" min="1" value="<?php 
-									// mantendo o entre1 em sessão
-									if(isset($_SESSION['entre1']) == 1)
-										{
-											print_r($_SESSION['entre1']);
-										}else if(isset($_SESSION['entre1']) == 0){
-											echo 1;
-										}; 
-									?>">
-						  <span class="input-group-text bg-light">até</span>
-						  			<input  style="text-align:center;" class="form-control" type="number" name="entre2" min="1" value="<?php 
-									// mantendo o entre2 em sessão
-									if(isset($_SESSION['entre2']) == 1)
-										{
-											print_r($_SESSION['entre2']);
-										}else if(isset($_SESSION['entre2']) == 0){
-											echo 100;
-										}; 
-									?>">
-						</div>
-						
-				    </div>
-
 				    <div class="col col-12 col-md-8 ">
-
-				    	
-
 						<div class="input-group mb-3 form-floating ">
-
-						
+							
 						 	<select style="text-align:center;" class="form-select form-control" name="ordem" required>
 							  <option value="" disabled hidden <?php 
 							  if(isset($_SESSION['ordem_value']) == 0){
 							  	echo 'selected';
 							  }
-							   ?>>Selecione a ordem de exposição do(s) número(s)</option>
+							   ?>>Selecione a ordem de exposição dos números</option>
 							  <option value="1" <?php 
 							  if(isset($_SESSION['ordem_value']) == true){
 							  	if($_SESSION['ordem_value'] == 1){
@@ -265,36 +245,37 @@
 					</div>
 				</div>
 				
-				
-				
 
-				<div class="container text-center">
-				  <div class="row justify-content-md-center">
-				  
-				    <div class="col-md-auto">
-				      <button class="rounded btn-success btn m-2">Sortear</button>
-				    </div>
+				<div class="container" id="loteria">
+					<div class="row text-center center justify-content-center mb-3">
+						<div class="center rounded p-3 ">
 
-				    
-				  </div>
+
+							<button class="btn-success rounded btn m-1 btn-mega-sena" <?php if($_SESSION['loteria'] == 1){ ?> disabled <?php } ?> name="loteria" value="1">Mega Sena</button>
+
+							<button class="btn-info rounded btn m-1 btn-quina" <?php if($_SESSION['loteria'] == 2){ ?> disabled <?php } ?> name="loteria" value="2">Quina</button>
+
+							<button class="btn-primary rounded btn m-1 btn-lotofacil" <?php if($_SESSION['loteria'] == 3){ ?> disabled <?php } ?> name="loteria" value="3">Lotofácil</button>
+
+							<button class="btn-warning rounded btn m-1 btn-lotomania" <?php if($_SESSION['loteria'] == 4){ ?> disabled <?php } ?> name="loteria" value="4">Lotomania</button>
+
+							<button class="btn-danger rounded btn m-1 btn-dupla-sena" <?php if($_SESSION['loteria'] == 5){ ?> disabled <?php } ?> name="loteria" value="5">Dupla Sena</button>
+
+							<!--<button class="btn-info rounded btn m-1 btn-super-sete" <?php if($_SESSION['loteria'] == 6){ ?> disabled <?php } ?> name="loteria" value="6">Super Sete</button>-->
+
+							<!--<button class="btn-success rounded btn m-1 btn-timemania" <?php if($_SESSION['loteria'] == 7){ ?> disabled <?php } ?> name="loteria" value="6">Timemania</button>-->
+
+							<!--<button class="btn-dark rounded btn m-1 btn-dia-de-sorte" <?php if($_SESSION['loteria'] == 8){ ?> disabled <?php } ?> name="loteria" value="8">Dia de sorte</button>-->
+
+							
+
+
+						</div>
+					</div>
 				</div>
 		
 				
 			</form>
-
-			<!--<div class="container" id="loteria">
-				<div class="row text-center center justify-content-center mt-3 mb-3">
-					<div class="center rounded p-3 border">
-						
-						<form method="post" action="sortear.php">
-							<button class="btn-info rounded btn" name="loteria" value="1">Mega Sena</button>
-							<button class="btn-info rounded btn" name="loteria" value="2">Quina</button>
-							<button class="btn-info rounded btn" name="loteria" value="3">Lotofácil</button>
-						</form>	
-
-					</div>
-				</div>
-			</div>-->
 
 			<?php 
 
@@ -307,12 +288,12 @@
 				<?php
 				if($_GET['sorteio'] == 'sucesso' || isset($_SESSION['numeros'])){
 					?>
-					<!-- limpando a tela -->
+					<!-- limpando a tela 
 					<script>
 						document.getElementById('sortear').remove();
 						document.getElementById('sorteie_abaixo').remove();
 						document.getElementById('loteria').remove();
-					</script> 
+					</script> -->
 
 				<?php 
 				} if($_GET['sorteio'] == 'sucesso'){
@@ -322,7 +303,14 @@
 					<script>
 						Swal.fire(
 						  'Números sorteados com sucesso!',
-						  'Você sorteou <?php print($_SESSION['quantidade']);  ?> número(s) <?php if(isset($_SESSION['opcao'])){
+						  'Você sorteou <?php 
+						  if(isset($_SESSION['nomeLoteria'])){
+						  	echo 'a loteria ';
+						  	echo($_SESSION['nomeLoteria']);
+						  	echo ' com ';
+						  }
+
+						  ?> <?php print($_SESSION['quantidade']);  ?> número(s) <?php if(isset($_SESSION['opcao'])){
 						  	if($_SESSION['opcao'] == 'impares'){
 						  		echo 'ímpares';
 						  	}else if($_SESSION['opcao'] == 'pares'){
@@ -514,7 +502,6 @@
                     <p>
                     &copy;<script>document.write(new Date().getFullYear());</script>
                     </p>
-
 			    </div>
 
 			  </div>
