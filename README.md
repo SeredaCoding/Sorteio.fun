@@ -1,5 +1,5 @@
 # Sorteio de numeros
- App de sorteio de números em PHP
+ App de sorteio de números e nomes em PHP
 
 Sorteio de números de forma crescente, decrescente e aleatória;
 
